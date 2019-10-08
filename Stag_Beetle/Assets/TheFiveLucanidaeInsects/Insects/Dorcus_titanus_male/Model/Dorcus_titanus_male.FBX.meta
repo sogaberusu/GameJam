@@ -1,0 +1,270 @@
+fileFormatVersion: 2
+guid: 4ee09c2714ae15f408b70d90f5e742ae
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: belly1
+    100002: belly2
+    100004: Body
+    100006: //RootNode
+    100008: Chest
+    100010: Chin
+    100012: Feelers
+    100014: Head
+    100016: L_chin1
+    100018: L_chin2
+    100020: L_innerwing1
+    100022: L_innerwing2
+    100024: L_innerwing3
+    100026: L_outwing1
+    100028: L_tongue1
+    100030: L_tongue2
+    100032: L_tongue3
+    100034: L_tongue4
+    100036: Leg
+    100038: Linsidewing
+    100040: LLeg1
+    100042: LLeg2
+    100044: LLeg3
+    100046: LLeg4
+    100048: Lleg5
+    100050: Lleg6
+    100052: LLeg7
+    100054: LLeg8
+    100056: LLeg9
+    100058: LLegIK1
+    100060: LLegIK2
+    100062: LLegIK3
+    100064: Loutsidewing
+    100066: ns wing
+    100068: ns4
+    100070: nsbase2
+    100072: nsbase2L_feeler1
+    100074: nsbase2L_feeler2
+    100076: nsbase2L_feeler3
+    100078: nsbase2R_Feeler1
+    100080: nsbase2R_Feeler2
+    100082: nsbase2R_Feeler3
+    100084: nsbase2SL_tongue1
+    100086: nsbase2SL_tongue2
+    100088: nsbase2SL_tongue3
+    100090: nsbase2Spine1
+    100092: nsbase2Spine1 1
+    100094: nsbase2Spine11
+    100096: nsbase2Spine12
+    100098: nsbase2Spine2
+    100100: nsbase2Spine2 1
+    100102: nsbase2SR_tongue1
+    100104: nsbase2SR_tongue2
+    100106: nsbase2SR_tongue3
+    100108: R_chin1
+    100110: R_chin2
+    100112: R_innerwing1
+    100114: R_innerwing2
+    100116: R_innerwing3
+    100118: R_outwing1
+    100120: R_tongue1
+    100122: R_tongue2
+    100124: R_tongue3
+    100126: R_tongue4
+    100128: Rinsidewing
+    100130: RLeg1
+    100132: RLeg2
+    100134: RLeg3
+    100136: RLeg4
+    100138: RLeg5
+    100140: RLeg6
+    100142: RLeg7
+    100144: RLeg8
+    100146: RLeg9
+    100148: RLegIK1
+    100150: RLegIK2
+    100152: RLegIK3
+    100154: Routsidewing
+    100156: Tongue
+    400000: belly1
+    400002: belly2
+    400004: Body
+    400006: //RootNode
+    400008: Chest
+    400010: Chin
+    400012: Feelers
+    400014: Head
+    400016: L_chin1
+    400018: L_chin2
+    400020: L_innerwing1
+    400022: L_innerwing2
+    400024: L_innerwing3
+    400026: L_outwing1
+    400028: L_tongue1
+    400030: L_tongue2
+    400032: L_tongue3
+    400034: L_tongue4
+    400036: Leg
+    400038: Linsidewing
+    400040: LLeg1
+    400042: LLeg2
+    400044: LLeg3
+    400046: LLeg4
+    400048: Lleg5
+    400050: Lleg6
+    400052: LLeg7
+    400054: LLeg8
+    400056: LLeg9
+    400058: LLegIK1
+    400060: LLegIK2
+    400062: LLegIK3
+    400064: Loutsidewing
+    400066: ns wing
+    400068: ns4
+    400070: nsbase2
+    400072: nsbase2L_feeler1
+    400074: nsbase2L_feeler2
+    400076: nsbase2L_feeler3
+    400078: nsbase2R_Feeler1
+    400080: nsbase2R_Feeler2
+    400082: nsbase2R_Feeler3
+    400084: nsbase2SL_tongue1
+    400086: nsbase2SL_tongue2
+    400088: nsbase2SL_tongue3
+    400090: nsbase2Spine1
+    400092: nsbase2Spine1 1
+    400094: nsbase2Spine11
+    400096: nsbase2Spine12
+    400098: nsbase2Spine2
+    400100: nsbase2Spine2 1
+    400102: nsbase2SR_tongue1
+    400104: nsbase2SR_tongue2
+    400106: nsbase2SR_tongue3
+    400108: R_chin1
+    400110: R_chin2
+    400112: R_innerwing1
+    400114: R_innerwing2
+    400116: R_innerwing3
+    400118: R_outwing1
+    400120: R_tongue1
+    400122: R_tongue2
+    400124: R_tongue3
+    400126: R_tongue4
+    400128: Rinsidewing
+    400130: RLeg1
+    400132: RLeg2
+    400134: RLeg3
+    400136: RLeg4
+    400138: RLeg5
+    400140: RLeg6
+    400142: RLeg7
+    400144: RLeg8
+    400146: RLeg9
+    400148: RLegIK1
+    400150: RLegIK2
+    400152: RLegIK3
+    400154: Routsidewing
+    400156: Tongue
+    4300000: Body
+    4300002: Chin
+    4300004: Tongue
+    4300006: Leg
+    4300008: Rinsidewing
+    4300010: Linsidewing
+    4300012: Routsidewing
+    4300014: Loutsidewing
+    4300016: Feelers
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Body
+    13700002: Chin
+    13700004: Feelers
+    13700006: Leg
+    13700008: Linsidewing
+    13700010: Loutsidewing
+    13700012: Rinsidewing
+    13700014: Routsidewing
+    13700016: Tongue
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
