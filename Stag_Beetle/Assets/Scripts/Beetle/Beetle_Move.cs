@@ -30,30 +30,34 @@ public class Beetle_Move : MonoBehaviour
         Vector3 playerPos = player.transform.position;
         Vector3 beetlePos = this.transform.position;
         float dis = Vector3.Distance(playerPos, beetlePos);
-        Debug.Log("Distance:" +dis);
-
+        Debug.Log(beetleState);
         //クワガタとの距離が近かったら攻撃
-        if (dis < 30.0f )
+        if (dis < 30.0f)
         {
             beetleState = BeetleState.attack;
         }
-        if(beetleState == BeetleState.idle)
+
+        if (beetleState == BeetleState.idle)
         {
-            anim.Play("Dynastid beetle_male_idle2");
+            anim.CrossFade("Dynastid beetle_male_idle2");
         }
         if (beetleState == BeetleState.advance)
         {
             transform.position += transform.forward * 0.05f;
-            anim.Play("Dynastid beetle_male_walk");
+            anim.CrossFade("Dynastid beetle_male_walk");
         }
         if (beetleState == BeetleState.recession)
         {
             transform.position += transform.forward * -0.05f;
-            anim.Play("Dynastid beetle_male_walk");
+            anim.CrossFade("Dynastid beetle_male_walk");
         }
         if (beetleState == BeetleState.attack)
         {
-            anim.Play("Dynastid beetle_male_attack2");
+            anim.CrossFade("Dynastid beetle_male_attack2");
+        }
+        if (anim.IsPlaying("Dynastid beetle_male_attack2"))
+        {
+            beetleState = BeetleState.recession;
         }
     }
 }
