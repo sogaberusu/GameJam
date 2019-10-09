@@ -10,7 +10,8 @@ public class Beetle_Move : MonoBehaviour
         idle,
         advance,
         recession,
-        attack
+        attack,
+        Attacked,
     }
     BeetleState beetleState = BeetleState.advance;
     // Start is called before the first frame update
@@ -36,9 +37,6 @@ public class Beetle_Move : MonoBehaviour
         {
             beetleState = BeetleState.attack;
         }
-
-
-
         if(beetleState == BeetleState.idle)
         {
             anim.Play("Dynastid beetle_male_idle2");
@@ -56,8 +54,6 @@ public class Beetle_Move : MonoBehaviour
         if (beetleState == BeetleState.attack)
         {
             anim.Play("Dynastid beetle_male_attack2");
-
-            beetleState = BeetleState.recession;
         }
     }
 }
