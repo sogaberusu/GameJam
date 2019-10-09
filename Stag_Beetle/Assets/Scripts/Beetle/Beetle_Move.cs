@@ -11,39 +11,60 @@ public class Beetle_Move : MonoBehaviour
         advance,
         recession,
         attack,
-        Attacked,
+        attacked,
     }
-    BeetleState beetleState = BeetleState.advance;
+    BeetleState beetleState = BeetleState.idle;
+    int transitionCount = 0;
+    bool IsAttack = false;
     // Start is called before the first frame update
     void Start()
     {
         anim = this.gameObject.GetComponent<Animation>();
-
-        anim.Play("Dynastid beetle_male_idle2");
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        player = GameObject.Find("Dorcus_titanus_male").transform;
-        Vector3 playerPos = player.transform.position;
-        Vector3 beetlePos = this.transform.position;
-        float dis = Vector3.Distance(playerPos, beetlePos);
-        Debug.Log(beetleState);
-        //クワガタとの距離が近かったら攻撃
-        if (dis < 30.0f)
+        //player = GameObject.Find("Alcides").transform;
+        //Vector3 playerPos = player.transform.position;
+        //Vector3 beetlePos = this.transform.position;
+        //float dis = Vector3.Distance(playerPos, beetlePos);
+        if (transitionCount > 60 && !anim.IsPlaying("Dynastid beetle_male_attack2") && !anim.IsPlaying("Dynastid beetle_male_idle1"))
         {
-            beetleState = BeetleState.attack;
+            while (true)
+            {
+                int random;
+                random = Random.Range((int)BeetleState.idle, (int)BeetleState.attacked);
+                if (beetleState == BeetleState.idle && beetleState == (BeetleState)random
+                    || beetleState == BeetleState.attack && beetleState == (BeetleState)random)
+                {
+                    random = Random.Range((int)BeetleState.idle, (int)BeetleState.attacked);
+                }
+                else
+                {
+                    beetleState = (BeetleState)random;
+                    transitionCount = 0;
+                    break;
+                }
+            }
+        }
+        ////クワガタとの距離が近かったら攻撃
+        //else if (dis < 30.0f)
+        //{
+        //    beetleState = BeetleState.attack;
+        //}
+        else
+        {
+            transitionCount++;
         }
 
         if (beetleState == BeetleState.idle)
         {
-            anim.CrossFade("Dynastid beetle_male_idle2");
+            anim.CrossFade("Dynastid beetle_male_idle1");
         }
         if (beetleState == BeetleState.advance)
         {
-            transform.position += transform.forward * 0.05f;
+            transform.position += transform.forward * 0.1f;
             anim.CrossFade("Dynastid beetle_male_walk");
         }
         if (beetleState == BeetleState.recession)
@@ -54,10 +75,13 @@ public class Beetle_Move : MonoBehaviour
         if (beetleState == BeetleState.attack)
         {
             anim.CrossFade("Dynastid beetle_male_attack2");
+            IsAttack = true;
         }
-        if (anim.IsPlaying("Dynastid beetle_male_attack2"))
+        if (!anim.IsPlaying("Dynastid beetle_male_attack2") && IsAttack == true)
         {
-            beetleState = BeetleState.recession;
+            beetleState = BeetleState.idle;
+            IsAttack = false;
         }
+        Debug.Log(beetleState);
     }
 }

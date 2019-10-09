@@ -260,7 +260,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100150, guid: 5666e61ba0e4d544394c66f8aedaef4d, type: 3}
       propertyPath: m_Name
-      value: Dorcus_titanus_male
+      value: Alcides
       objectReference: {fileID: 0}
     - target: {fileID: 400150, guid: 5666e61ba0e4d544394c66f8aedaef4d, type: 3}
       propertyPath: m_LocalPosition.x
