@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
-    public float Speed = 2.0f;
+    [SerializeField] BoxCollider horn;
+    [SerializeField]  float Speed = 2.0f;
     float moveSpeed = 0.0f;
     Rigidbody rb;
     Animation anim;
@@ -13,7 +14,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
         anim = this.gameObject.GetComponent<Animation>();
     }
 
@@ -36,7 +36,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKey("joystick button 0") && !IsWalk)
+        //if (Input.GetKey("joystick button 0") && !IsWalk)
+        //{
+        //    IsAtk = true;
+        //    anim.Play("alcides_attack2");
+        //}
+        if (Input.GetKey(KeyCode.J) && !IsWalk)
         {
             IsAtk = true;
             anim.Play("alcides_attack2");
@@ -62,7 +67,21 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("あたって");
+            rb.position = this.transform.position;
+            Debug.Log("あたってる");
         }
+    }
+    void AttackStart()
+    {
+        horn.enabled = true;
+
+        Debug.Log("攻撃開始");
+    }
+
+    void AttackEnd()
+    {
+        horn.enabled = false;
+
+        Debug.Log("攻撃終了");
     }
 }
