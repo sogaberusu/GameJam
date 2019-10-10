@@ -58,8 +58,11 @@ public class PlayerController : MonoBehaviour
         rb.position += ms;
         rb.AddForce(this.transform.up * (-9.8f) * 1000);
     }
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision other)
     {
-        Debug.Log("あたって");
+        if (other.gameObject.tag == "Enemy")
+        {
+            Debug.Log("あたって");
+        }
     }
 }
