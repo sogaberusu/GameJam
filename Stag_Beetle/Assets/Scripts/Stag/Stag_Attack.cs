@@ -7,12 +7,20 @@ public class Stag_Attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "Enemy")
+        {
+            //カブトムシを吹っ飛ばす処理を書く。
+            Debug.Log("攻撃している");
+        }
     }
 }
