@@ -7,7 +7,7 @@ public class Beetle_Move : MonoBehaviour
     Transform player;
     GameObject Box;
     public BoxCollider horn;
-   
+    //public Rigidbody body;
     enum BeetleState
     {
         idle,
@@ -26,7 +26,7 @@ public class Beetle_Move : MonoBehaviour
 
         Box = GameObject.Find("Cube");
         horn = Box.GetComponent<BoxCollider>();
-        
+        //body = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -91,9 +91,18 @@ public class Beetle_Move : MonoBehaviour
         }
         //Debug.Log(beetleState);
 
+        //重力
+        //Vector3 ms = this.transform.forward;
+        //body.position += ms;
+        //body.AddForce(this.transform.up * (-9.8f) * 1000);
         //this.transform.position += this.transform.up * (-0.098f);
 
-        
+        //body.isKinematic = false;
+
+        //if (body.isKinematic == false)
+        //{
+        //    transform.SetPositionAndRotation(new Vector3(76.0f, transform.position.y, 0.0f), Quaternion.Euler(90.0f, 90.0f, 0.0f));
+        //}
     }
     void AttackStart()
     {
@@ -107,5 +116,25 @@ public class Beetle_Move : MonoBehaviour
         horn.enabled = false;
        
         Debug.Log("攻撃終了");
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("体が当たっている");
+
+            //body.isKinematic = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("体が離れた");
+
+            //body.isKinematic = false;
+        }
     }
 }
