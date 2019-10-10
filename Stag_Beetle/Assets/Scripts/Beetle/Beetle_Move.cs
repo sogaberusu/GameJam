@@ -6,7 +6,8 @@ public class Beetle_Move : MonoBehaviour
     Animation anim;
     Transform player;
     GameObject Box;
-    BoxCollider horn;
+    public BoxCollider horn;
+   
     enum BeetleState
     {
         idle,
@@ -22,6 +23,10 @@ public class Beetle_Move : MonoBehaviour
     void Start()
     {
         anim = this.gameObject.GetComponent<Animation>();
+
+        Box = GameObject.Find("Cube");
+        horn = Box.GetComponent<BoxCollider>();
+        
     }
 
     // Update is called once per frame
@@ -84,16 +89,23 @@ public class Beetle_Move : MonoBehaviour
             beetleState = BeetleState.idle;
             IsAttack = false;
         }
-        Debug.Log(beetleState);
+        //Debug.Log(beetleState);
 
         //this.transform.position += this.transform.up * (-0.098f);
+
+        
+    }
+    void AttackStart()
+    {
+        horn.enabled = true;
+    
+        Debug.Log("攻撃開始");
     }
 
-    //void OnTriggerEnter(BoxCollider col)
-    //{
-    //    if (col.tag == "Enemy")
-    //    {
-    //        Debug.Log("敵に当たった");
-    //    }
-    //}
+    void AttackEnd()
+    {
+        horn.enabled = false;
+       
+        Debug.Log("攻撃終了");
+    }
 }
