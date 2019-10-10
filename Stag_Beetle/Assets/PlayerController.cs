@@ -6,16 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     public float Speed = 2.0f;
     float z = 0.0f;
-    Rigidbody rb;
     Animation anim;
-    bool moveflag;
-    Vector3 direction;
     private bool IsAtk = false;
     private bool IsWalk = false;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
 
         anim = this.gameObject.GetComponent<Animation>();
     }
@@ -23,10 +20,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         z = Input.GetAxis("Vertical") * Speed;
-        Vector3 olddirection;
-        olddirection = direction;
-        direction = new Vector3(0, 0, z);
-
 
         //コントローラー対応の移動記述。　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
         if (!IsAtk)
@@ -62,10 +55,7 @@ public class PlayerController : MonoBehaviour
             IsWalk = false;
             Debug.Log("IsWalk = false");
         }
-    }
-
-    void FixedUpdate()
-    {
-        rb.velocity = new Vector3(0, 0, z);
+        this.transform.position += this.transform.forward * z;
+        this.transform.position += this.transform.up * (-0.098f);
     }
 }
