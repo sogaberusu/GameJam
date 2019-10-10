@@ -83,5 +83,7 @@ public class Beetle_Move : MonoBehaviour
             IsAttack = false;
         }
         Debug.Log(beetleState);
+
+        this.transform.position += this.transform.up * (-0.098f); 
     }
 }
