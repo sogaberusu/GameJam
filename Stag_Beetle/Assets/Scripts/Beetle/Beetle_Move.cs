@@ -5,6 +5,8 @@ public class Beetle_Move : MonoBehaviour
 {
     Animation anim;
     Transform player;
+    GameObject Box;
+    BoxCollider horn;
     enum BeetleState
     {
         idle,
@@ -84,6 +86,14 @@ public class Beetle_Move : MonoBehaviour
         }
         Debug.Log(beetleState);
 
-        this.transform.position += this.transform.up * (-0.098f); 
+        //this.transform.position += this.transform.up * (-0.098f);
     }
+
+    //void OnTriggerEnter(BoxCollider col)
+    //{
+    //    if (col.tag == "Enemy")
+    //    {
+    //        Debug.Log("敵に当たった");
+    //    }
+    //}
 }
