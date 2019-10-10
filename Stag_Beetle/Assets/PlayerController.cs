@@ -5,36 +5,34 @@ using System.Collections.Generic;
 public class PlayerController : MonoBehaviour
 {
     public float Speed = 2.0f;
-    float z = 0.0f;
+    float moveSpeed = 0.0f;
+    Rigidbody rb;
     Animation anim;
     private bool IsAtk = false;
     private bool IsWalk = false;
-
     void Start()
     {
-        //rb = GetComponent<Rigidbody>();
-
+        rb = GetComponent<Rigidbody>();
+        
         anim = this.gameObject.GetComponent<Animation>();
     }
 
     void Update()
     {
-        z = Input.GetAxis("Vertical") * Speed;
+        moveSpeed = Input.GetAxis("Vertical") * Speed;
 
         //コントローラー対応の移動記述。　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
         if (!IsAtk)
         {
-            if (z != 0.0f)
+            if (moveSpeed != 0.0f)
             {
                 IsWalk = true;
                 anim.Play("alcides_walk");
-                Debug.Log("歩く");
 
             }
-            else if (z == 0.0f)
+            else if (moveSpeed == 0.0f)
             {
                 anim.Play("alcides_idle1");
-                Debug.Log("待機");
             }
         }
 
@@ -42,7 +40,6 @@ public class PlayerController : MonoBehaviour
         {
             IsAtk = true;
             anim.Play("alcides_attack2");
-            Debug.Log("攻撃動作");
         }
 
         if (!anim.isPlaying && IsAtk)
@@ -53,9 +50,16 @@ public class PlayerController : MonoBehaviour
         if (!IsAtk && IsWalk)
         {
             IsWalk = false;
-            Debug.Log("IsWalk = false");
         }
-        this.transform.position += this.transform.forward * z;
-        this.transform.position += this.transform.up * (-0.098f);
+        //this.transform.position += this.transform.forward * moveSpeed;
+        //this.transform.position += this.transform.up * (-0.098f);
+        Vector3 ms = this.transform.forward;
+        ms *= moveSpeed;
+        rb.position += ms;
+        rb.AddForce(this.transform.up * (-9.8f) * 1000);
+    }
+    void OnCollisionEnter()
+    {
+        Debug.Log("あたって");
     }
 }
