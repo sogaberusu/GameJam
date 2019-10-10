@@ -25,4 +25,6 @@ public class Beetle_Attack_Event : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+
 }
