@@ -5,16 +5,18 @@ using UnityEngine;
 public class Beetle_Attack : MonoBehaviour
 {
     GameObject player;
+    PlayerController playerController;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Alcides");
+        playerController = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(playerController.Hp);
     }
 
     void OnTriggerEnter(Collider collider)
@@ -24,7 +26,7 @@ public class Beetle_Attack : MonoBehaviour
             //クワガタのHPを減らす処理を描く
             Debug.Log("あたった");
 
-            //player.GetComponent
+            playerController.Hp -= 10;
         }
     }
 }

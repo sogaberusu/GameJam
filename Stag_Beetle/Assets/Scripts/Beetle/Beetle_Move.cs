@@ -8,6 +8,7 @@ public class Beetle_Move : MonoBehaviour
     GameObject Box;
     public BoxCollider horn;
     public Rigidbody body;
+    bool attacSuccess = false;
     enum BeetleState
     {
         idle,
@@ -93,11 +94,6 @@ public class Beetle_Move : MonoBehaviour
             }
             //Debug.Log(beetleState);
 
-            //重力
-            Vector3 ms = this.transform.forward;
-            body.position += ms;
-            body.AddForce(this.transform.up * (-9.8f) * 1000);
-            this.transform.position += this.transform.up * (-0.098f);
 
             //body.isKinematic = false;
 
@@ -106,18 +102,29 @@ public class Beetle_Move : MonoBehaviour
             //    transform.SetPositionAndRotation(new Vector3(76.0f, transform.position.y, 0.0f), Quaternion.Euler(90.0f, 90.0f, 0.0f));
             //}
         }
+        if (attacSuccess == false)
+        {
+            //重力
+            Vector3 ms = this.transform.forward;
+            body.position += ms;
+            body.AddForce(this.transform.up * (-9.8f) * 1000);
+            this.transform.position += this.transform.up * (-0.098f);
+        }
+        else
+        {
+            body.AddForce(this.transform.up * (9.8f) * 1000);
+            body.AddForce(this.transform.right * (-9.8f) * 1000);
+        }
     }
     void AttackStart()
     {
         horn.enabled = true;
-    
-        Debug.Log("攻撃開始");
+        Debug.Log("攻撃準備");
     }
 
     void AttackEnd()
     {
         horn.enabled = false;
-       
         Debug.Log("攻撃終了");
     }
 
@@ -125,7 +132,6 @@ public class Beetle_Move : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("体が当たっている");
             body.position = this.transform.position;
             //body.isKinematic = true;
         }
@@ -136,26 +142,26 @@ public class Beetle_Move : MonoBehaviour
         {
             body.position = this.transform.position;
             body.Sleep();
-            if (body.IsSleeping())
-            {
-                Debug.Log("スリープ");
-            }
         }
     }
 
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("体が離れた");
+    //void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    { 
 
-            //body.isKinematic = false;
-        }
-    }
+    //        //body.isKinematic = false;
+    //    }
+    //}
 
     public void Attacked()
     {
         beetleState = BeetleState.attacked;
+    }
+
+    public void AttackSuccess()
+    {
+        attacSuccess = true;
     }
 
     public void CancelAttacked()
