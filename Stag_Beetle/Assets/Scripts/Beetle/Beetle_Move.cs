@@ -4,7 +4,7 @@ using UnityEngine;
 public class Beetle_Move : MonoBehaviour
 {
     Animation anim;
-    Transform player;
+    //Transform player;
     GameObject Box;
     public BoxCollider horn;
     public Rigidbody body;
@@ -20,6 +20,7 @@ public class Beetle_Move : MonoBehaviour
     BeetleState beetleState = BeetleState.idle;
     int transitionCount = 0;
     bool IsAttack = false;
+    float roll = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -102,6 +103,10 @@ public class Beetle_Move : MonoBehaviour
             //    transform.SetPositionAndRotation(new Vector3(76.0f, transform.position.y, 0.0f), Quaternion.Euler(90.0f, 90.0f, 0.0f));
             //}
         }
+        else
+        {
+            anim.Play("Dynastid beetle_male_struggle");
+        }
         if (attacSuccess == false)
         {
             //重力
@@ -112,8 +117,10 @@ public class Beetle_Move : MonoBehaviour
         }
         else
         {
+            roll = 10.0f;
             body.AddForce(this.transform.up * (9.8f) * 1000);
             body.AddForce(this.transform.right * (-9.8f) * 1000);
+            this.transform.Rotate(roll, 0.0f, roll);
         }
     }
     void AttackStart()
