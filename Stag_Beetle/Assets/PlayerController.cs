@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             rb.position = this.transform.position;
+            rb.sleepThreshold = 0.0f;
             Debug.Log("あたってる");
         }
     }
