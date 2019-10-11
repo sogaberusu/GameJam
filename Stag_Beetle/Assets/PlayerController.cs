@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] BoxCollider horn = null;
     [SerializeField]  float Speed = 2.0f;
+    public int Hp = 100;
     float moveSpeed = 0.0f;
     Rigidbody rb;
     Animation anim;
