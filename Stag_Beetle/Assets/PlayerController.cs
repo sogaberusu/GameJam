@@ -4,13 +4,14 @@ using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] BoxCollider horn;
+    [SerializeField] BoxCollider horn = null;
     [SerializeField]  float Speed = 2.0f;
     float moveSpeed = 0.0f;
     Rigidbody rb;
     Animation anim;
     private bool IsAtk = false;
     private bool IsWalk = false;
+    private bool notMove = false;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,7 +21,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         moveSpeed = Input.GetAxis("Vertical") * Speed;
-
+        if (notMove)
+        {
+            Debug.Log(true);
+        }
         //コントローラー対応の移動記述。　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
         if (!IsAtk)
         {
@@ -59,17 +63,50 @@ public class PlayerController : MonoBehaviour
         //this.transform.position += this.transform.forward * moveSpeed;
         //this.transform.position += this.transform.up * (-0.098f);
         Vector3 ms = this.transform.forward;
-        ms *= moveSpeed;
-        rb.position += ms;
+        if (!notMove)
+        {
+            ms *= moveSpeed;
+        }
+        else if(moveSpeed<0.0f)
+        {
+            ms *= moveSpeed;
+        }
+        else
+        {
+            ms *= 0.0f;
+        }
+        //rb.position += ms;
+        this.transform.position += ms;
         rb.AddForce(this.transform.up * (-9.8f) * 1000);
+        this.transform.position += this.transform.up * (-0.098f);
+        if (rb.IsSleeping())
+        {
+            Debug.Log("スリープ");
+        }
     }
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Enemy")
         {
             rb.position = this.transform.position;
-            rb.sleepThreshold = 0.0f;
+           
             Debug.Log("あたってる");
+        }
+    }
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            rb.position = this.transform.position;
+            rb.Sleep();
+            notMove = true;
+        }
+    }
+    void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            notMove = false;
         }
     }
     void AttackStart()

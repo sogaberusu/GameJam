@@ -127,6 +127,18 @@ public class Beetle_Move : MonoBehaviour
             //body.isKinematic = true;
         }
     }
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            body.position = this.transform.position;
+            body.Sleep();
+            if (body.IsSleeping())
+            {
+                Debug.Log("スリープ");
+            }
+        }
+    }
 
     void OnCollisionExit(Collision collision)
     {
