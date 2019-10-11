@@ -7,7 +7,7 @@ public class Beetle_Move : MonoBehaviour
     Transform player;
     GameObject Box;
     public BoxCollider horn;
-    //public Rigidbody body;
+    public Rigidbody body;
     enum BeetleState
     {
         idle,
@@ -26,7 +26,7 @@ public class Beetle_Move : MonoBehaviour
 
         Box = GameObject.Find("Cube");
         horn = Box.GetComponent<BoxCollider>();
-        //body = this.GetComponent<Rigidbody>();
+        body = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -92,10 +92,10 @@ public class Beetle_Move : MonoBehaviour
         //Debug.Log(beetleState);
 
         //重力
-        //Vector3 ms = this.transform.forward;
-        //body.position += ms;
-        //body.AddForce(this.transform.up * (-9.8f) * 1000);
-        //this.transform.position += this.transform.up * (-0.098f);
+        Vector3 ms = this.transform.forward;
+        body.position += ms;
+        body.AddForce(this.transform.up * (-9.8f) * 1000);
+        this.transform.position += this.transform.up * (-0.098f);
 
         //body.isKinematic = false;
 
@@ -123,7 +123,7 @@ public class Beetle_Move : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("体が当たっている");
-
+            body.position = this.transform.position;
             //body.isKinematic = true;
         }
     }
