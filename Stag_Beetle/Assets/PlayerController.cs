@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     Animation anim;
     private bool IsAtk = false;
     private bool IsWalk = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
         //    IsAtk = true;
         //    anim.Play("alcides_attack2");
         //}
-        if (Input.GetKey(KeyCode.J) && !IsWalk)
+        if (Input.GetKey("joystick button 0") && !IsWalk)
         {
             IsAtk = true;
             anim.Play("alcides_attack2");
