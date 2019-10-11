@@ -557,5 +557,45 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 836672373}
+    - target: {fileID: 5036547264330110034, guid: c0a532755cbd6e04381dba6110e9e526,
+        type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036547264330110034, guid: c0a532755cbd6e04381dba6110e9e526,
+        type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 38e2b24014be4434fb389fa1d28b4bea, type: 2}
+    - target: {fileID: 5036547264330110034, guid: c0a532755cbd6e04381dba6110e9e526,
+        type: 3}
+      propertyPath: m_Animations.Array.data[5]
+      value: 
+      objectReference: {fileID: 7400000, guid: c2b4a8d9b3aa7d34286f09c23da30b6a, type: 2}
+    - target: {fileID: 5036547264330110034, guid: c0a532755cbd6e04381dba6110e9e526,
+        type: 3}
+      propertyPath: m_Animations.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036547264330110034, guid: c0a532755cbd6e04381dba6110e9e526,
+        type: 3}
+      propertyPath: m_Animations.Array.data[6]
+      value: 
+      objectReference: {fileID: 7400000, guid: c2b4a8d9b3aa7d34286f09c23da30b6a, type: 2}
+    - target: {fileID: 5036547264330110034, guid: c0a532755cbd6e04381dba6110e9e526,
+        type: 3}
+      propertyPath: m_Animations.Array.data[3]
+      value: 
+      objectReference: {fileID: 7400000, guid: 93b72682f23df5c4f91d1d6dd7710395, type: 2}
+    - target: {fileID: 5036547264330110034, guid: c0a532755cbd6e04381dba6110e9e526,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036547263141788807, guid: c0a532755cbd6e04381dba6110e9e526,
+        type: 3}
+      propertyPath: beetle
+      value: 
+      objectReference: {fileID: 855545722}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0a532755cbd6e04381dba6110e9e526, type: 3}
