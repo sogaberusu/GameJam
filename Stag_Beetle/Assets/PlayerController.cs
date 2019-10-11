@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private bool IsAtk = false;
     private bool IsWalk = false;
     private bool notMove = false;
+    public bool IsHunt = false;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -64,15 +65,21 @@ public class PlayerController : MonoBehaviour
         //this.transform.position += this.transform.forward * moveSpeed;
         //this.transform.position += this.transform.up * (-0.098f);
         Vector3 ms = this.transform.forward;
+
         if (!notMove)
         {
             ms *= moveSpeed;
         }
-        else if(moveSpeed<0.0f)
+        else if (notMove && moveSpeed < 0.0f)
         {
             ms *= moveSpeed;
         }
-        else
+        else if (notMove && moveSpeed > 0.0f)
+        {
+            ms *= 0.0f;
+        }
+
+        if (IsHunt)
         {
             ms *= 0.0f;
         }
@@ -80,10 +87,6 @@ public class PlayerController : MonoBehaviour
         this.transform.position += ms;
         rb.AddForce(this.transform.up * (-9.8f) * 1000);
         this.transform.position += this.transform.up * (-0.098f);
-        if (rb.IsSleeping())
-        {
-            Debug.Log("スリープ");
-        }
     }
     void OnCollisionEnter(Collision other)
     {
@@ -91,7 +94,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.position = this.transform.position;
            
-            Debug.Log("あたってる");
         }
     }
     void OnCollisionStay(Collision other)
@@ -113,14 +115,12 @@ public class PlayerController : MonoBehaviour
     void AttackStart()
     {
         horn.enabled = true;
-
-        Debug.Log("攻撃開始");
+        
     }
 
     void AttackEnd()
     {
         horn.enabled = false;
-
-        Debug.Log("攻撃終了");
+        
     }
 }
