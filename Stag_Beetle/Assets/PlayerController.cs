@@ -13,9 +13,14 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     Animation anim;
     private bool IsAtk = false;
+<<<<<<< HEAD
+    private bool IsWalk = false;
+
+=======
     private bool notMove = false;
     public bool IsHunt = false;
     private bool canThrowBeetle = false;
+>>>>>>> 950a53ffe75f895d4675a0614bfc564c0c1efe87
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -46,7 +51,11 @@ public class PlayerController : MonoBehaviour
         //    anim.Play("alcides_attack2");
         //    moveSpeed *= 0.0f;
         //}
+<<<<<<< HEAD
+        if (Input.GetKey("joystick button 0") && !IsWalk)
+=======
         if (Input.GetKey(KeyCode.J) )
+>>>>>>> 950a53ffe75f895d4675a0614bfc564c0c1efe87
         {
             IsAtk = true;
             anim.Play("alcides_attack2");
